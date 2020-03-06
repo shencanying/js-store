@@ -1,0 +1,243 @@
+body {
+    margin: 0px !important;
+    background-color: #fafafa;
+    font-family: Helvetica, Pingfang SC, Microsoft YaHei, STHeiti, Verdana, Arial, Tahoma, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.arti-nav {
+    height: 60px;
+    user-select: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    padding: 0px 100px;
+    font-size: 14px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .3);
+    .nav-right {
+        .nav-index,
+        .nav-library {
+            cursor: pointer;
+            color: #fff;
+            text-decoration: none
+        }
+        .nav-library {
+            margin-left: 20px;
+        }
+    }
+    .nav-left {
+        .nav-logo {
+            height: 60px;
+            width: 200px;
+            background: url("../static/logo.svg") no-repeat;
+        }
+        .nav-content {
+            input {
+                border: 1px solid #fff;
+                background: transparent;
+                outline: none;
+                color: #fff;
+                height: 25px;
+                width: 170px;
+                margin-right: 10px;
+                padding: 0px 8px;
+            }
+        }
+        .nav-search {
+            cursor: pointer;
+        }
+    }
+}
+
+.arti-back {
+    background-color: #5f2fe1;
+    user-select: none;
+    color: #fff;
+    width: 100%;
+    height: 500px;
+    text-align: center;
+    .back-title {
+        font-size: 56px;
+        padding-top: 160px;
+    }
+    .back-desc,
+    .back-desc-group {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+    .back-desc-group {
+        padding-top: 30px;
+    }
+}
+
+.arti-main {
+    .arti-list {
+        padding: 50px;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .item-img-1 {
+        background: url("../static/u0.png") no-repeat;
+    }
+    .item-img-2 {
+        background: url("../static/u1.png") no-repeat;
+    }
+    .item-img-3 {
+        background: url("../static/u2.png") no-repeat;
+    }
+    .item-img-4 {
+        background: url("../static/u3.png") no-repeat;
+    }
+    .item-img-5 {
+        background: url("../static/u4.png") no-repeat;
+    }
+    .item-img-6 {
+        background: url("../static/u5.png") no-repeat;
+    }
+    .item-func {
+        width: 33.33%;
+        .item-content {
+            width: 365px;
+            box-sizing: border-box;
+            .item-back {
+                img {
+                    width: 365px;
+                    height: 178px;
+                }
+            }
+            .item-title {
+                font-size: 22px;
+                padding: 15px;
+                background-color: #fff;
+            }
+            .item-desc {
+                padding: 0px 15px 15px 15px;
+                font-size: 14px;
+                color: #7F7F7F;
+                background-color: #fff;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+
+////////////备用的
+////////////备用的
+.arti-content {
+    .content-toast {
+        margin-top: 20px;
+        color: #595961;
+        height: 80px;
+        text-align: center;
+        font-size: 30px;
+        line-height: 80px;
+        width: 100%;
+    }
+    .content {
+        width: 100%;
+        padding: 10px 100px;
+        box-sizing: border-box;
+        .content-container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        .item-main {
+            width: 25%;
+            //height: 200px;
+            .main-container {
+                margin: 10px;
+                border-radius: 3px;
+                background-color: #fff;
+                box-shadow: 0 5px 10px 0 rgba(2, 31, 65, .05);
+            }
+            .item-top {
+                padding: 20px 0px;
+                margin: 0px 20px;
+                text-align: center;
+                border-bottom: 1px solid #f2f3f5;
+                .top-name {
+                    color: #70747d;
+                    font-size: 16px;
+                }
+                .top-desc {
+                    margin-top: 10px;
+                    color: #73767c;
+                    font-size: 12px;
+                    height: 35px;
+                }
+            }
+            .item-code {
+                .code-title {
+                    text-align: center;
+                    color: #73767c;
+                    font-size: 14px;
+                    padding: 10px 20px;
+                }
+                .code-content {
+                    width: 100%;
+                    height: 300px;
+                    padding: 0px 20px;
+                    box-sizing: border-box;
+                    .code-container {
+                        padding: 6px;
+                        box-sizing: border-box;
+                        width: 100%;
+                        height: 100%;
+                        border: 2px solid rgba(0, 0, 0, 0.1);
+                    }
+                    textarea {
+                        resize: none;
+                        border: none;
+                        outline: none;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .code-control {
+                    padding: 10px 20px;
+                    color: #73767c;
+                    font-size: 14px;
+                    display: flex;
+                    .control-params {
+                        width: 75%;
+                        .params-line {
+                            padding: 6px 0px;
+                        }
+                        .params-group {
+                            display: flex;
+                            input {
+                                flex: auto;
+                                outline: none;
+                                padding: 0px 6px;
+                            }
+                        }
+                    }
+                    .control-exec {
+                        box-sizing: border-box;
+                        padding-left: 4px;
+                        width: 25%;
+                        user-select: none;
+                        .exec-main {
+                            width: 100%;
+                            height: 100%;
+                            border: 2px solid rgba(0, 0, 0, 0.1);
+                            box-sizing: border-box;
+                            cursor: pointer;
+                            transition: background-color 0.3s ease;
+                        }
+                        .exec-main:hover {
+                            background-color: rgba($color: #000000, $alpha: 0.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

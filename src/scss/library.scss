@@ -1,0 +1,104 @@
+.lib-back {
+    height: 60px;
+    background-color: #5f2fe1;
+    width: 100%;
+}
+
+.func-container {
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    .func-showlist {
+        width: 20%;
+        border-right: 1px solid #efefef;
+        .func-show-item {
+            height: 46px;
+            font-size: 15px;
+            color: #333333;
+            text-align: center;
+            line-height: 46px;
+            transition: background-color .3s ease;
+            background-color: #fff;
+            cursor: pointer;
+        }
+        .func-show-item:hover {
+            background-color: rgba(47, 23, 112, 0.1);
+        }
+    }
+    .func-showmain {
+        width: 50%;
+        padding: 15px;
+        box-sizing: border-box;
+        #func-title {
+            text-align: center;
+            padding: 10px;
+            border-bottom: 1px solid #efefef;
+        }
+        #func-code {
+            width: 100%;
+            height: 100%;
+            outline: none;
+            font-size: 15px;
+            resize: none;
+            border: none;
+        }
+    }
+    .func-showsetting {
+        width: 30%;
+        box-sizing: border-box;
+        padding: 15px;
+        .setting-param,
+        .setting-output {
+            background-color: rgba(245, 244, 248, 1);
+            border-radius: 3px;
+            padding: 10px 0px;
+            .setting-title {
+                border-left: 4px solid rgba(47, 23, 112, 1);
+                padding-left: 10px;
+            }
+        }
+        .setting-param {
+            margin-bottom: 20px;
+            .setting-input {
+                box-sizing: border-box;
+                padding: 10px 15px;
+                textarea {
+                    outline: none;
+                    resize: none;
+                    width: 100%;
+                    height: 100px;
+                    font-size: 14px;
+                    color: #AAAAAA;
+                }
+            }
+            .setting-exec {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                padding: 0px 10px;
+                .exec-btn {
+                    background-color: #2f1770;
+                    color: #fff;
+                    font-size: 15px;
+                    padding: 6px 10px;
+                    border-radius: 2px;
+                    margin-left: 10px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .setting-output {
+            padding: 0px 15px;
+            .ouput-content {
+                height: 200px;
+                margin-top: 10px;
+                //user-select: none;
+                line-height: 200px;
+                background-color: #fff;
+                text-align: center;
+                font-size: 14px;
+                color: #AAAAAA;
+            }
+        }
+    }
+}
