@@ -57,7 +57,7 @@ function initLibrary() {
 
     //添加事件
     const funcBtnList = $('.func-show-item');
-
+    let referenceType = '';
     if (funcBtnList && funcBtnList.length === funcList.length) {
         for (let i = 0; i < funcBtnList.length; i++) {
 
@@ -66,6 +66,7 @@ function initLibrary() {
                 const current = funcBtnList[i];
                 const currentTitle = funcList[i].title;
                 const currentCode = funcList[i]._define.toString();
+                referenceType = funcList[i]._return;
                 //设置
                 code.val(currentCode);
                 title[0].innerHTML = currentTitle;
@@ -99,10 +100,14 @@ function initLibrary() {
             result.text(e);
             return;
         }
-
+        showReferenceType()
         console.log(ans);
         result.text(ans);
     });
+    //显示出参类型
+    function showReferenceType(){
+        console.log(referenceType)
+    }
 
 }
 
