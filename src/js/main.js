@@ -1,6 +1,8 @@
 let data = require('./data');
 let store = require('./storeJS');
-//let highLight = require('highlight.js');
+let highLight = require('highlight.js');
+
+import 'highlight.js/styles/default.css';
 import * as $ from 'jquery';
 
 function init() {
@@ -27,7 +29,7 @@ function init() {
         });
     }
 
-    //highLight.initHighlightingOnLoad();
+
     initLibrary();
 }
 
@@ -50,7 +52,7 @@ function initLibrary() {
 
                 //code[0].innerHTML = item._define.toString();
                 title[0].innerHTML = item.title;
-                code.val(item._define.toString());
+                code.html(highLight.highlight('javascript', item._define.toString()).value);
             }
         });
     }
@@ -68,8 +70,9 @@ function initLibrary() {
                 const currentCode = funcList[i]._define.toString();
                 referenceType = funcList[i]._return;
                 //设置
-                code.val(currentCode);
+                code.html(highLight.highlight('javascript', currentCode).value);
                 title[0].innerHTML = currentTitle;
+
             }
 
         }
