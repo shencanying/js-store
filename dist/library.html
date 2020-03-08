@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content="width=device-width,initial-scale=1">
+  <title>JavaScript神器</title>
+<link href=main.css rel=stylesheet></head>
+
+<body>
+  <div class="arti-nav flex-between">
+    <div class="nav-left flex-start">
+      <div class=nav-logo></div>
+      <div class=nav-content>
+        <input type=text id=func-query>
+      </div>
+      <div id=func-search>搜索</div>
+    </div>
+    <div class="nav-right flex-start">
+      <a href=/index.html class=nav-index>首页</a>
+      <a href=/library.html class=nav-library>函数库</a>
+    </div>
+  </div>
+  <div class=lib-back></div>
+  <div class=func-container>
+    <div id=funcShowList class=func-showlist></div>
+    <div class=func-showmain>
+      <div id=func-title></div>
+      <pre id=func-code></pre>
+    </div>
+    <div class=func-showsetting>
+      <div class=setting-param>
+        <div class=setting-title>参数</div>
+        <div class=setting-input>
+          <textarea placeholder="输入参数 用逗号隔开" id=exec-param></textarea>
+        </div>
+        <div class=setting-exec>
+          <div id=exec-clean class=exec-btn>清空</div>
+          <div id=exec-done class=exec-btn>执行</div>
+        </div>
+      </div>
+      <div class=setting-output>
+        <div class=setting-title>结果</div>
+        <div class=ouput-content id=exec-result>输入参数 点击执行查看执行结果</div>
+      </div>
+    </div>
+  </div>
+<script type=text/javascript src=main.b01d2b3cb9ddb740abce.js></script></body>
+
+</html>
