@@ -11,7 +11,7 @@ let storeJS = [{
     },
   },
   _define: function (a) {
-    let type = typeof a;
+    let type = typeof(a);
     if (type != "object") {
       return type;
     }
