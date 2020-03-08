@@ -6,7 +6,9 @@ import * as $ from 'jquery';
 
 function init() {
   console.log("初始化index");
-
+  window._typeof = (a) => {
+    return typeof a;
+  }
   //所有函数
   const funcList = data.getAllFunc();
   //
@@ -40,42 +42,38 @@ function initLibrary() {
   const listEle = $('#funcShowList');
   const code = $('#func-code');
   const title = $('#func-title');
-  if (listEle) {
-    funcList.forEach((item, index) => {
-      const randPic = Math.random() * 6 >> 0;
-      listEle.append(`
-            <div class="func-show-item">${item.title}</div>
-            `);
-      if (0 === index) {
-        //初始化code
-
-        //code[0].innerHTML = item._define.toString();
-        title[0].innerHTML = item.title;
-        code.html(highLight.highlight('javascript', item._define.toString()).value);
-      }
-    });
-  }
-
-  //添加事件
-  const funcBtnList = $('.func-show-item');
-  let referenceType = '';
-  if (funcBtnList && funcBtnList.length === funcList.length) {
-    for (let i = 0; i < funcBtnList.length; i++) {
-
-      funcBtnList[i].onclick = (e) => {
-
-        const current = funcBtnList[i];
-        const currentTitle = funcList[i].title;
-        const currentCode = funcList[i]._define.toString();
-        referenceType = funcList[i]._return;
-        //设置
-        code.html(highLight.highlight('javascript', currentCode).value);
-        title[0].innerHTML = currentTitle;
-
-      }
-
+  // 以后别应用jquery，采用原生JS来写
+  const funcQuery = document.getElementById('func-query');
+  const funcSearch = $('#func-search');
+  refreshFuncList(funcList);
+  funcQuery.addEventListener('keydown', function (e) {
+    if (e.keyCode == 13) {
+      searchFuncs();
     }
-  }
+  })
+
+  funcSearch.on('click', () => {
+    searchFuncs();
+  })
+
+  // //添加事件
+  // const funcBtnList = $('.func-show-item');
+  // let referenceType = '';
+  // if (funcBtnList && funcBtnList.length === funcList.length) {
+  //   for (let i = 0; i < funcBtnList.length; i++) {
+
+  //     funcBtnList[i].onclick = (e) => {
+
+  //       // const current = funcBtnList[i];
+  //       // const currentTitle = funcList[i].title;
+  //       // let item = funcList[i];
+  //       // referenceType = funcList[i]._return;
+  //       // title[0].innerHTML = currentTitle;
+  //       showFunc(item.id);
+  //     }
+
+  //   }
+  // }
 
   //按钮
   const cleanBtn = $('#exec-clean');
@@ -86,6 +84,9 @@ function initLibrary() {
     console.log("!");
     return;
   }
+  cleanBtn.on('click', () => {
+    inputContent.val(null)
+  })
 
   doneBtn.click((e) => {
     // let p = inputContent.val().split(',');
@@ -105,14 +106,40 @@ function initLibrary() {
       result.text(e);
       return;
     }
-    showReferenceType()
+    // showReferenceType()
     result.text(ans);
   });
   //显示出参类型
-  function showReferenceType() {
-    console.log(referenceType)
+  // function showReferenceType() {
+  //   console.log(referenceType)
+  // }
+  // 刷新函数列表
+  function refreshFuncList(funcs) {
+    listEle.html("");
+    funcs.forEach(item => {
+      let listItem = $(`<div class="func-show-item">${item.title}</div>`);
+      listEle.append(listItem);
+      listItem.on('click', () => {
+        showFunc(item.id);
+      })
+    })
   }
-
+  // 根据ID显示函数
+  function showFunc(id) {
+    let func = data.getFunc(id)[0];
+    title[0].innerHTML = func.title;
+    result.text(func._return);
+    code.html(highLight.highlight('javascript', func._define.toString().replace('_define', func.name)).value);
+  }
+  function searchFuncs() {
+    let query = funcQuery.value;
+    let funcs = data.search(query);
+    if (funcs.length > 0) {
+      refreshFuncList(funcs);
+    } else {
+      alert('无结果');
+    }
+  }
 }
 
 
